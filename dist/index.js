@@ -13,7 +13,7 @@ app.set('port', process.env.PORT || 5000);
 app.use(_express2.default.static(__dirname + '/public'));
 
 app.get('/', function (request, response) {
-  response.send('Hello World! - Staging asdflkjaslkfjsadlk');
+  response.send('Hello World!');
 });
 
 app.listen(app.get('port'), function () {
