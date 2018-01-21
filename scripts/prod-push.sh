@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ensures you're on master
-git checkout development
+git checkout master
 
 # builds
 npm run build
