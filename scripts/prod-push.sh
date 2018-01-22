@@ -18,3 +18,6 @@ git push
 
 # pushes to heroku
 git push production master:master
+
+# tail logs
+heroku logs --tail --app garden-helper-prod
