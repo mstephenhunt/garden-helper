@@ -3,6 +3,9 @@
 # ensures you're on development
 git checkout development
 
+# get what's in git
+git pull
+
 # builds
 npm run build
 
