@@ -8,6 +8,7 @@
     "build": "babel ./index.js -d ./dist"
   },
   "dependencies": {
+    "dotenv": "4.0.0",
     "express": "^4.13.3"
   },
   "engines": {
