@@ -3,6 +3,9 @@
 # ensures you're on development
 git checkout development
 
+# get what's in git
+git pull
+
 # builds
 npm run build
 
@@ -15,3 +18,6 @@ git push
 
 # pushes to heroku
 git push staging development:master
+
+# tail logs
+heroku logs --tail --app garden-helper-staging
