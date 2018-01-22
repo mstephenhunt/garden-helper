@@ -1,7 +1,7 @@
 {
-  "name": "node-js-sample",
-  "version": "0.2.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "garden-helper",
+  "version": "0.0.1",
+  "description": "garden-helper",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -16,17 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-sample"
+    "url": "https://github.com/mstephenhunt/garden-helper"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express"
+    "garden"
   ],
-  "author": "Mark Pundsack",
-  "contributors": [
-    "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
-  ],
+  "author": "",
+  "contributors": [],
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "6.26.0",
