@@ -6,8 +6,9 @@ var _express2 = _interopRequireDefault(_express);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = (0, _express2.default)(); // var express = require('express')
+var app = (0, _express2.default)();
 
+const env = process.env.NODE_ENV || 'dev';
 
 app.set('port', process.env.PORT || 5000);
 app.use(_express2.default.static(__dirname + '/public'));
