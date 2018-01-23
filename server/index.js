@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 import express from 'express'
-import dummyPrint from './dummy-print'
+import db from './mongo'
 var app = express()
 
 const env = process.env.NODE_ENV || 'dev'
@@ -16,7 +16,18 @@ app.get('/', function(request, response) {
 app.listen(app.get('port'), function() {
   console.log('---> node env: ', env)
 
-  dummyPrint()
+  db.setConnectionDetails({
+    dbUsername: process.env.MONGO_USERNAME,
+    dbPassword: process.env.MONGO_PASSWORD,
+    dbInstance: process.env.MONGO_INSTANCE,
+    dbPort: process.env.MONGO_PORT
+  })
+
+  db.makeConnection(function (error) {
+    if (error) {
+      console.log('no db')
+    }
+  })
 
   console.log("Node app is running at localhost:" + app.get('port'))
 })

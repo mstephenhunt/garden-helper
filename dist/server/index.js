@@ -4,9 +4,9 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _dummyPrint = require('./dummy-print');
+var _mongo = require('./mongo');
 
-var _dummyPrint2 = _interopRequireDefault(_dummyPrint);
+var _mongo2 = _interopRequireDefault(_mongo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,7 +26,18 @@ app.get('/', function (request, response) {
 app.listen(app.get('port'), function () {
   console.log('---> node env: ', env);
 
-  (0, _dummyPrint2.default)();
+  _mongo2.default.setConnectionDetails({
+    dbUsername: process.env.MONGO_USERNAME,
+    dbPassword: process.env.MONGO_PASSWORD,
+    dbInstance: process.env.MONGO_INSTANCE,
+    dbPort: process.env.MONGO_PORT
+  });
+
+  _mongo2.default.makeConnection(function (error) {
+    if (error) {
+      console.log('no db');
+    }
+  });
 
   console.log("Node app is running at localhost:" + app.get('port'));
 });
