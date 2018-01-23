@@ -29,8 +29,9 @@ app.listen(app.get('port'), function () {
   _mongo2.default.setConnectionDetails({
     dbUsername: process.env.MONGO_USERNAME,
     dbPassword: process.env.MONGO_PASSWORD,
-    dbInstance: process.env.MONGO_INSTANCE,
-    dbPort: process.env.MONGO_PORT
+    dbAddress: process.env.MONGO_ADDRESS,
+    dbPort: process.env.MONGO_PORT,
+    dbInstance: process.env.MONGO_INSTANCE
   });
 
   _mongo2.default.makeConnection(function (error) {

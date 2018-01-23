@@ -19,8 +19,9 @@ app.listen(app.get('port'), function() {
   db.setConnectionDetails({
     dbUsername: process.env.MONGO_USERNAME,
     dbPassword: process.env.MONGO_PASSWORD,
-    dbInstance: process.env.MONGO_INSTANCE,
-    dbPort: process.env.MONGO_PORT
+    dbAddress: process.env.MONGO_ADDRESS,
+    dbPort: process.env.MONGO_PORT,
+    dbInstance: process.env.MONGO_INSTANCE
   })
 
   db.makeConnection(function (error) {

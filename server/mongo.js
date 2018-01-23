@@ -12,16 +12,18 @@ class Database {
     const {
       dbUsername,
       dbPassword,
-      dbInstance,
-      dbPort
+      dbAddress,
+      dbPort,
+      dbInstance
     } = options
 
     this.dbUsername = dbUsername
     this.dbPassword = dbPassword
-    this.dbInstance = dbInstance
+    this.dbAddress = dbAddress
     this.dbPort = dbPort
+    this.dbInstance = dbInstance
 
-    this.uri = 'mongodb://' + dbUsername + ':' + dbPassword + '@' + dbInstance + ':' + dbPort + '/garden-helper'
+    this.uri = 'mongodb://' + dbUsername + ':' + dbPassword + '@' + dbAddress + ':' + dbPort + '/garden-helper-' + dbInstance
   }
 
   makeConnection (callback) {
