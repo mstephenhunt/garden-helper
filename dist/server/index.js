@@ -10,6 +10,8 @@ var _dummyPrint2 = _interopRequireDefault(_dummyPrint);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+require('dotenv').config();
+
 var app = (0, _express2.default)();
 
 const env = process.env.NODE_ENV || 'dev';
