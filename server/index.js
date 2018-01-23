@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import express from 'express'
 import dummyPrint from './dummy-print'
 var app = express()
