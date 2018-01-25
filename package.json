@@ -4,8 +4,8 @@
   "description": "garden-helper",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/garden-helper-server/index.js",
-    "build": "rm -rf ./dist/** && babel ./garden-helper-server/** -d ./dist",
+    "start": "node dist/server/index.js",
+    "build": "rm -rf ./dist/** && babel ./server/** -d ./dist",
     "buildAndStart": "npm run build && npm run start"
   },
   "dependencies": {

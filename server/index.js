@@ -29,8 +29,6 @@ app.get('/users', function (request, response, next) {
 app.listen(app.get('port'), function() {
   console.log('---> node env: ', env)
 
-  console.log('---> ???: ', process.env.MONGO_USERNAME)
-
   db.setConnectionDetails({
     dbUsername: process.env.MONGO_USERNAME,
     dbPassword: process.env.MONGO_PASSWORD,
