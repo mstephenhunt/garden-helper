@@ -4,7 +4,6 @@
   "description": "garden-helper",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm install",
     "start": "node dist/server/index.js",
     "build": "rm -rf ./dist/** && babel --ignore node_modules ./server/** -d ./dist",
     "buildAndStart": "npm run build && npm run start"
