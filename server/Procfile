@@ -1,2 +1,2 @@
-web: node dist/server/index.js
+web: node dist/garden-helper-server/index.js
 
