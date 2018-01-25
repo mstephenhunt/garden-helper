@@ -36,8 +36,6 @@ app.get('/users', function (request, response, next) {
 app.listen(app.get('port'), function () {
   console.log('---> node env: ', env);
 
-  console.log('---> ???: ', process.env.MONGO_USERNAME);
-
   _mongo2.default.setConnectionDetails({
     dbUsername: process.env.MONGO_USERNAME,
     dbPassword: process.env.MONGO_PASSWORD,
