@@ -13,6 +13,19 @@ app.get('/', function(request, response) {
   response.send('Hello World -- Production!')
 })
 
+app.get('/users', function (request, response, next) {
+  response.json([
+    {
+      id: 1,
+      username: 'Shanbanan'
+    },
+    {
+      id: 2,
+      username: 'Mashoo'
+    }
+  ])
+})
+
 app.listen(app.get('port'), function() {
   console.log('---> node env: ', env)
 
