@@ -8,6 +8,10 @@ var _mongo = require('./mongo');
 
 var _mongo2 = _interopRequireDefault(_mongo);
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 require('dotenv').config();
@@ -20,7 +24,7 @@ app.set('port', process.env.PORT || 5000);
 app.use(_express2.default.static(__dirname + '/public'));
 
 app.get('/', function (request, response) {
-  response.send('Hello World -- Production!');
+  response.sendFile(_path2.default.join(__dirname + '/../../client/build/index.html'));
 });
 
 app.get('/users', function (request, response, next) {

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server/index.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "build": "rm -rf ./dist/** && babel ./server/** -d ./dist",
     "buildAndStart": "npm run build && npm run start"
   },
