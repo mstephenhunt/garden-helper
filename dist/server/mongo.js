@@ -33,7 +33,11 @@ class Database {
     this.dbPort = dbPort;
     this.dbInstance = dbInstance;
 
-    this.uri = 'mongodb://' + dbUsername + ':' + dbPassword + '@' + dbAddress + ':' + dbPort + '/garden-helper-' + dbInstance;
+    if (process.env.NODE_ENV !== 'staging' && process.env.NODE_ENV !== 'production') {
+      this.uri = 'mongodb://localhost/garden-helper-dev';
+    } else {
+      this.uri = 'mongodb://' + dbUsername + ':' + dbPassword + '@' + dbAddress + ':' + dbPort + '/garden-helper-' + dbInstance;
+    }
   }
 
   makeConnection(callback) {
