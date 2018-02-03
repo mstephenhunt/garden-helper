@@ -15,6 +15,14 @@ app.use(bodyParser.json())
 
 // ==========================================
 
+app.use(passport.initialize())
+app.use(passport.session());
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(null); }
+  res.json({ message: 'not authd' })
+}
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
@@ -31,8 +39,6 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-app.use(passport.initialize())
-
 app.post('/login', passport.authenticate('local'), function(request, response) {
   response.json({ message: 'Logged in!' })
 })
@@ -48,6 +54,10 @@ app.post('/register', function (request, response) {
 
     response.json({ message: 'registered!' })
   })
+})
+
+app.get('/protected', ensureAuthenticated, function (request, response) {
+  response.json({ message: 'yo' })
 })
 
 // router.post('/register', function(req, res) {

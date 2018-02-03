@@ -33,6 +33,16 @@ app.use(_bodyParser2.default.json());
 
 // ==========================================
 
+app.use(_passport2.default.initialize());
+app.use(_passport2.default.session());
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next(null);
+  }
+  res.json({ message: 'not authd' });
+}
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
@@ -49,8 +59,6 @@ _passport2.default.use(new LocalStrategy(Account.authenticate()));
 _passport2.default.serializeUser(Account.serializeUser());
 _passport2.default.deserializeUser(Account.deserializeUser());
 
-app.use(_passport2.default.initialize());
-
 app.post('/login', _passport2.default.authenticate('local'), function (request, response) {
   response.json({ message: 'Logged in!' });
 });
@@ -66,6 +74,10 @@ app.post('/register', function (request, response) {
 
     response.json({ message: 'registered!' });
   });
+});
+
+app.get('/protected', ensureAuthenticated, function (request, response) {
+  response.json({ message: 'yo' });
 });
 
 // router.post('/register', function(req, res) {
