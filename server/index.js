@@ -3,6 +3,8 @@ require('dotenv').config()
 import express from 'express'
 import db from './mongo'
 import path from 'path'
+
+import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import passport from 'passport'
 const LocalStrategy = require('passport-local').Strategy
@@ -14,6 +16,13 @@ app.use(bodyParser.json())
 
 
 // ==========================================
+
+app.use(cookieParser())
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}))
 
 app.use(passport.initialize())
 app.use(passport.session());

@@ -12,6 +12,10 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _cookieParser = require('cookie-parser');
+
+var _cookieParser2 = _interopRequireDefault(_cookieParser);
+
 var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
@@ -32,6 +36,13 @@ app.set('port', process.env.PORT || 5000);
 app.use(_bodyParser2.default.json());
 
 // ==========================================
+
+app.use((0, _cookieParser2.default)());
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use(_passport2.default.initialize());
 app.use(_passport2.default.session());
