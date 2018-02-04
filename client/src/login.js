@@ -1,4 +1,10 @@
 import React, { Component } from 'react'
+import {
+  FormGroup,
+  FormControl,
+  ControlLabel,
+  Button
+} from 'react-bootstrap'
 
 export default class LoginForm extends Component {
   constructor (props) {
@@ -37,15 +43,25 @@ export default class LoginForm extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+        <FormGroup
+          controlId="formBasicText">
+          <ControlLabel>Username:</ControlLabel>
+          <FormControl
+            type="text"
+            name="username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <ControlLabel>Password:</ControlLabel>
+          <FormControl
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </FormGroup>
+
+        <Button type="submit">Login</Button>
       </form>
     )
   }
