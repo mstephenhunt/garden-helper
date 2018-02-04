@@ -7,7 +7,7 @@
     "start": "node dist/server/index.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "build": "rm -rf ./dist/** && babel ./server/** -d ./dist",
-    "buildAndStart": "npm run build && npm run start"
+    "buildAndStart": "cd client && npm run build && cd .. && npm run build && npm run start"
   },
   "dependencies": {
     "cookie-parser": "1.4.3",
