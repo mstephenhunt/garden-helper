@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import {
+  Navbar,
+  Nav,
+  NavItem
+} from 'react-bootstrap'
 
 export default class Header extends Component {
   render () {
@@ -7,12 +12,18 @@ export default class Header extends Component {
       <header>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
 
-        <nav>
-          <ul>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/login'>Login</Link></li>
-          </ul>
-        </nav>
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to='/'>Garden Helper</Link>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Nav>
+            <NavItem eventKey={1} href="/register">
+              Register
+            </NavItem>
+          </Nav>
+        </Navbar>
       </header>
     )
   }
