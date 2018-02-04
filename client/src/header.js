@@ -5,6 +5,8 @@ export default class Header extends Component {
   render () {
     return (
       <header>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
+
         <nav>
           <ul>
             <li><Link to='/'>Home</Link></li>
